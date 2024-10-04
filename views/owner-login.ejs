@@ -1,0 +1,77 @@
+<%- include('./partials/header') %> <% if(error.length>0){ %>
+<div
+  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500"
+>
+  <span class="inline-block mt-1 mb-1 text-white"> <%= error %> </span>
+</div>
+<% } %>
+<div class="w-full h-screen justify-around flex px-20">
+  <div class="w-1/3 flex items-center justify-center h-screen">
+    <div class="w-full">
+      <h3 class="text-4xl mb-1">
+        Welcome to <span class="text-green-500 font-semibold">SCATCH</span>
+      </h3>
+      <h4 class="capitalize text-2xl mb-5">Owner Registration</h4>
+      <form autocomplete="off" action="/owners/register" method="post">
+        <input
+          class="bg-zinc-100 block w-11/12 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+          type="text"
+          placeholder="Full Name"
+          name="fullname"
+        />
+        <input
+          class="bg-zinc-100 block w-11/12 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+          type="email"
+          placeholder="Email"
+          name="email"
+        />
+        <input
+          class="bg-zinc-100 block w-11/12 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+          type="password"
+          placeholder="Password"
+          name="password"
+        />
+        <input
+          class="px-5 rounded-full py-3 mt-3 bg-green-500 font-semibold text-white"
+          type="submit"
+          value="Create"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    class="flex items-center justify-center h-screen text-zinc-700 text-xl font-semibold"
+  >
+    OR
+  </div>
+  <div class="w-1/3 flex items-center justify-center h-screen">
+    <div class="w-full px-">
+      <h4 class="text-2xl capitalize mb-5">login your account</h4>
+      <form autocomplete="off" action="/owner/login" method="post">
+        <input
+          class="block bg-zinc-100 w-11/12 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+          type="email"
+          placeholder="Email"
+          name="email"
+        />
+        <input
+          class="block bg-zinc-100 w-11/12 px-3 py-2 border-[1px] rounded-md mb-3 border-zinc-200"
+          type="password"
+          placeholder="Password"
+          name="password"
+        />
+        <input
+          class="px-5 block rounded-full py-3 mt-5 bg-blue-500 font-semibold text-white"
+          type="submit"
+          value="Login"
+        />
+      </form>
+    </div>
+  </div>
+  <div
+    class="absolute top-5 left-5 -translate-x-1/5 -translate-y-1/3 bg-amber-500 px-3 py-1 rounded-lg font-semibold"
+  >
+    <a href="/owners/register" class="text-white">Register as Owner</a>
+  </div>
+</div>
+<%- include('./partials/footer') %>
