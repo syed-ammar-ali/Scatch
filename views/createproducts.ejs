@@ -1,20 +1,31 @@
-<%- include('./partials/header', { activePage: 'shop' }) %> <%
-if(success.length>0){ %>
+<%- include('./partials/header', { activePage: 'admin', loggedIn: true }) %> 
+
+<% if(typeof success !== 'undefined' && success && success.length > 0){ %>
 <div
-  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500"
+  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-50 shadow-md"
 >
   <span class="inline-block mt-1 mb-1 text-white"> <%= success %> </span>
+</div>
+<% } %>
+
+<% if(typeof error !== 'undefined' && error && error.length > 0){ %>
+<div
+  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-50 shadow-md"
+>
+  <span class="inline-block mt-1 mb-1 text-white"> <%= error %> </span>
 </div>
 <% } %>
 
 <div class="min-h-screen flex flex-col">
   <div class="container px-10 py-20 flex flex-grow">
     <div class="w-[25%] flex h-screen flex-col items-start">
-      <div class="flex flex-col">
-        <a class="block w-fit mb-2" href="">All Products</a>
-        <a class="block w-fit mb-2" href="">Create new product</a>
+      <div class="flex flex-col gap-2">
+        <a class="block font-medium hover:text-blue-600 transition" href="/shop">All Products (Shop)</a>
+        <a class="block font-semibold text-blue-600" href="/owners/admin">Create New Product</a>
+        <a class="block text-red-500 hover:text-red-700 transition mt-4" href="/owners/logout">Owner Logout</a>
       </div>
     </div>
+
     <main class="w-3/4 bg-white p-8 shadow ml-4">
       <h2 class="text-xl font-bold mb-4">Create New Product</h2>
       <form

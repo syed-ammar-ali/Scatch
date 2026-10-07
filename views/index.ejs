@@ -1,10 +1,21 @@
-<%- include('./partials/header') %> <% if(error.length>0){ %>
+<%- include('./partials/header', { loggedIn: false, activePage: 'home' }) %> 
+
+<% if(typeof error !== 'undefined' && error && error.length > 0){ %>
 <div
-  class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500"
+  class="fixed top-5 left-1/2 -translate-x-1/2 p-3 rounded-md bg-red-500 z-50 shadow-md"
 >
-  <span class="inline-block mt-1 mb-1 text-white"> <%= error %> </span>
+  <span class="inline-block text-white font-medium"> <%= error %> </span>
 </div>
 <% } %>
+
+<% if(typeof success !== 'undefined' && success && success.length > 0){ %>
+<div
+  class="fixed top-5 left-1/2 -translate-x-1/2 p-3 rounded-md bg-green-500 z-50 shadow-md"
+>
+  <span class="inline-block text-white font-medium"> <%= success %> </span>
+</div>
+<% } %>
+
 <div class="w-full h-screen justify-around flex px-20">
   <div class="w-1/3 flex items-center justify-center h-screen">
     <div class="w-full">
@@ -68,10 +79,11 @@
       </form>
     </div>
   </div>
-  <!-- <div
-    class="absolute top-5 left-5 -translate-x-1/5 -translate-y-1/3 bg-amber-500 px-3 py-1 rounded-lg font-semibold"
+  <div
+    class="fixed bottom-6 right-6 bg-zinc-900 hover:bg-black px-4 py-2 rounded-full font-medium shadow-lg transition"
   >
-    <a href="/owners/register" class="text-white">Register as Owner</a>
-  </div> -->
+    <a href="/owners/login" class="text-white text-xs tracking-wide">Owner Portal &rarr;</a>
+  </div>
 </div>
+
 <%- include('./partials/footer') %>
